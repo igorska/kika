@@ -1,27 +1,10 @@
-"use client";
+import type { Metadata } from "next";
+import HomeClient from "@/components/HomeClient";
 
-import { useState } from "react";
-import Hero from "@/components/Hero";
-import TrustBar from "@/components/TrustBar";
-import AboutGuide from "@/components/AboutGuide";
-import Contents from "@/components/Contents";
-import AboutAuthor from "@/components/AboutAuthor";
-import CtaSection from "@/components/CtaSection";
-import CheckoutModal from "@/components/CheckoutModal";
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => setModalOpen(true);
-
-  return (
-    <main>
-      <Hero onBuyClick={openModal} />
-      <TrustBar />
-      <AboutGuide onBuyClick={openModal} />
-      <Contents />
-      <AboutAuthor />
-      <CtaSection onBuyClick={openModal} />
-      <CheckoutModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-    </main>
-  );
+  return <HomeClient />;
 }
