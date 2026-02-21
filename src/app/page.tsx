@@ -3,7 +3,6 @@ import AboutGuide from "@/components/AboutGuide";
 import Contents from "@/components/Contents";
 import AboutAuthor from "@/components/AboutAuthor";
 import CtaSection from "@/components/CtaSection";
-
 export default function Home() {
   return (
     <main>

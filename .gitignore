@@ -30,7 +30,10 @@ yarn-error.log*
 
 # project assets
 public/header_1.jpg
+public/author.jpg
 kika.md
+about.txt
+output_1.jpg
 
 # typescript
 *.tsbuildinfo

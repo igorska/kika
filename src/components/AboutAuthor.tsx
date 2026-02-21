@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutAuthor() {
   return (
     <section className="bg-white py-16 px-6">
@@ -5,9 +7,13 @@ export default function AboutAuthor() {
         <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">Об авторе</h2>
         <div className="flex flex-col md:flex-row gap-10 items-start">
           <div className="flex-shrink-0 mx-auto md:mx-0">
-            <div className="w-40 h-40 rounded-full bg-[#EFEFEF] flex items-center justify-center text-gray-400 text-sm">
-              Фото
-            </div>
+            <Image
+              src="/author.jpg"
+              alt="Кристина"
+              width={160}
+              height={160}
+              className="rounded-full object-cover w-40 h-40"
+            />
           </div>
           <div className="flex-1 space-y-4 text-base leading-relaxed">
             <p>Привет, меня зовут Кристина.</p>
