@@ -2,14 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #2d2d2d;
+    background-color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #000000;
-  background-color: #ffffff;
+@layer utilities {
+  .section-padding {
+    @apply py-20 px-6 md:py-28 md:px-8;
+  }
 }
