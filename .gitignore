@@ -28,6 +28,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# project assets
+public/header_1.jpg
+kika.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
