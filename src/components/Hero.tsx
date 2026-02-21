@@ -23,7 +23,11 @@ const item = {
   },
 };
 
-export default function Hero() {
+interface HeroProps {
+  onBuyClick: () => void;
+}
+
+export default function Hero({ onBuyClick }: HeroProps) {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       <Image
@@ -69,7 +73,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={item}>
-          <BuyButton />
+          <BuyButton onClick={onBuyClick} />
         </motion.div>
       </motion.div>
 

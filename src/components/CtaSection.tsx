@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import BuyButton from "./BuyButton";
 
-export default function CtaSection() {
+interface CtaSectionProps {
+  onBuyClick: () => void;
+}
+
+export default function CtaSection({ onBuyClick }: CtaSectionProps) {
   return (
     <section className="bg-charcoal section-padding relative overflow-hidden">
       {/* Decorative blobs */}
@@ -47,7 +51,7 @@ export default function CtaSection() {
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
         >
-          <BuyButton label="Купить гайд" />
+          <BuyButton label="Купить гайд" onClick={onBuyClick} />
         </motion.div>
       </div>
     </section>

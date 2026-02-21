@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import BuyButton from "./BuyButton";
 
-export default function AboutGuide() {
+interface AboutGuideProps {
+  onBuyClick: () => void;
+}
+
+export default function AboutGuide({ onBuyClick }: AboutGuideProps) {
   return (
     <section className="bg-cream section-padding">
       <div className="max-w-4xl mx-auto">
@@ -88,7 +92,7 @@ export default function AboutGuide() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <BuyButton label="Хочу гайд" />
+          <BuyButton label="Хочу гайд" onClick={onBuyClick} />
         </motion.div>
       </div>
     </section>

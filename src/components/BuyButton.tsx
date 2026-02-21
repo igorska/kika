@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 interface BuyButtonProps {
   label?: string;
   variant?: "primary" | "ghost";
-  href?: string;
+  onClick?: () => void;
 }
 
 export default function BuyButton({
   label = "Купить гайд",
   variant = "primary",
-  href = "#",
+  onClick,
 }: BuyButtonProps) {
   const base =
     "relative inline-block font-bold py-4 px-10 rounded-full text-base tracking-wide overflow-hidden cursor-pointer";
@@ -22,8 +22,9 @@ export default function BuyButton({
       : "text-white bg-primary shadow-[0_4px_24px_rgba(232,58,124,0.45)] hover:shadow-[0_6px_32px_rgba(232,58,124,0.65)]";
 
   return (
-    <motion.a
-      href={href}
+    <motion.button
+      type="button"
+      onClick={onClick}
       className={`${base} ${styles} group`}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.97 }}
@@ -41,6 +42,6 @@ export default function BuyButton({
         />
       )}
       <span className="relative z-10">{label}</span>
-    </motion.a>
+    </motion.button>
   );
 }

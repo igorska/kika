@@ -22,11 +22,19 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# env files — never commit secrets
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
+
+# claude code local settings
+.claude/
+
+# private files (guide PDF)
+/private/
 
 # project assets
 public/header_1.jpg

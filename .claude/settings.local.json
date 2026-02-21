@@ -5,7 +5,8 @@
       "WebFetch(domain:sashaesenina.ru)",
       "Bash(npx create-next-app@latest:*)",
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(head:*)"
     ]
   }
 }
