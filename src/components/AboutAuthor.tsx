@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const bullets = [
   "красиво выглядят на коже;",
@@ -15,34 +12,27 @@ export default function AboutAuthor() {
     <section className="bg-white section-padding">
       <div className="max-w-4xl mx-auto">
         {/* Eyebrow */}
-        <motion.p
+        <p
           className="text-primary text-sm tracking-[0.16em] uppercase font-sans font-medium text-center mb-3"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
+          data-animate="fade-up"
         >
           Об авторе
-        </motion.p>
+        </p>
 
-        <motion.h2
+        <h2
           className="text-3xl md:text-5xl font-bold mb-12 text-center text-charcoal"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.55, delay: 0.08 }}
+          data-animate="fade-up"
+          data-delay="1"
         >
           Об авторе
-        </motion.h2>
+        </h2>
 
         <div className="flex flex-col md:flex-row gap-12 items-start">
           {/* Photo column */}
-          <motion.div
+          <div
             className="flex-shrink-0 mx-auto md:mx-0"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+            data-animate="fade-left"
+            data-delay="1"
           >
             <div className="relative w-[220px] h-[220px]">
               {/* Decorative ring */}
@@ -53,32 +43,24 @@ export default function AboutAuthor() {
                 width={220}
                 height={220}
                 className="rounded-full object-cover w-[220px] h-[220px]"
+                sizes="220px"
               />
               {/* Experience badge */}
-              <motion.div
+              <div
                 className="absolute bottom-2 right-0 bg-primary text-white text-xs font-bold font-sans px-3 py-1.5 rounded-full shadow-lg"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 18,
-                  delay: 0.4,
-                }}
+                data-animate="scale-in"
+                data-delay="3"
               >
                 6 лет опыта
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Text column */}
-          <motion.div
+          <div
             className="flex-1 space-y-4 text-base leading-relaxed text-charcoal/80 font-sans"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+            data-animate="fade-right"
+            data-delay="1"
           >
             <p>Привет, меня зовут Кристина.</p>
             <p>Я профессиональный визажист.</p>
@@ -100,17 +82,15 @@ export default function AboutAuthor() {
             {/* Staggered bullets */}
             <ul className="space-y-2 pl-1">
               {bullets.map((b, i) => (
-                <motion.li
+                <li
                   key={i}
                   className="flex items-start gap-3"
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
+                  data-animate="fade-up"
+                  data-delay={String(i + 2)}
                 >
                   <span className="mt-[7px] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
                   <span>{b}</span>
-                </motion.li>
+                </li>
               ))}
             </ul>
 
@@ -122,7 +102,7 @@ export default function AboutAuthor() {
               Этот гайд — результат моего опыта, ошибок, тестов и реальной
               работы.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

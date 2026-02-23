@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import Footer from "@/components/Footer";
+import AnimationObserver from "@/components/AnimationObserver";
 
 const playfair = Playfair_Display({
   subsets: ["cyrillic", "latin"],
@@ -10,13 +11,12 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["cyrillic", "latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 const base = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
+
+export const viewport: Viewport = {
+  themeColor: "#A1245B",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(base),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Гайд визажиста",
   },
   description:
-    "Авторский гайд профессионального визажиста: как собрать косметичку, какую косметику выбрать, как не разориться на ненужных средствах. Гайд по косметике для визажистов и любителей макияжа.",
+    "Авторский гайд визажиста: как собрать косметичку, какую косметику выбрать и не разориться на ненужных средствах. Проверенные продукты, советы профессионала.",
   keywords: [
     "как собрать косметичку",
     "гайд по косметике",
@@ -80,9 +80,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="ru" className={playfair.variable}>
       <body className="font-sans antialiased">
         <JsonLd />
+        <AnimationObserver />
         {children}
         <Footer />
       </body>

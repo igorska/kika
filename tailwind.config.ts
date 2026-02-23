@@ -17,7 +17,15 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "Arial", "sans-serif"],
+        sans: [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Arial",
+          "sans-serif",
+        ],
       },
       keyframes: {
         shimmer: {
