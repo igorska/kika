@@ -3,4 +3,6 @@ export const APP_CONFIG = {
   adminEmail: process.env.ADMIN_EMAIL ?? "kristar@mailinator.com",
   pdfPath: "private/guide.pdf",
   senderEmail: "onboarding@resend.dev",
+  price: "$30",
+  priceOriginal: "$45",
 } as const;

@@ -26,7 +26,7 @@ function parseDevice(ua: string): string {
 
 export async function POST(request: NextRequest): Promise<Response> {
   const body = await request.json();
-  const { name, email } = body as { name?: string; email?: string };
+  const { name, email, phone } = body as { name?: string; email?: string; phone?: string };
 
   if (!name || !email) {
     return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
@@ -49,6 +49,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     metadata: {
       customer_name: name,
       customer_email: email,
+      customer_phone: phone ?? "",
       customer_ip: ip,
       customer_country: country,
       customer_city: city,

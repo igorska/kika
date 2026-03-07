@@ -97,6 +97,7 @@ export async function POST(request: NextRequest): Promise<Response> {
       : "—";
     const paidAt = new Date(session.created * 1000).toLocaleString("ru-RU", { timeZone: "Europe/Moscow" });
 
+    const phone    = m.customer_phone    ?? "—";
     const ip       = m.customer_ip       ?? "—";
     const country  = m.customer_country  ?? "—";
     const city     = m.customer_city     ?? "—";
@@ -137,6 +138,7 @@ export async function POST(request: NextRequest): Promise<Response> {
               <table style="border-collapse:collapse;width:100%;margin-bottom:20px">
                 <tr><td style="padding:5px 16px 5px 0;color:#666;white-space:nowrap">Имя</td><td style="padding:5px 0"><strong>${customerName}</strong></td></tr>
                 <tr><td style="padding:5px 16px 5px 0;color:#666;white-space:nowrap">Email</td><td style="padding:5px 0"><a href="mailto:${customerEmail}" style="color:#A1245B">${customerEmail}</a></td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:#666;white-space:nowrap">Телефон</td><td style="padding:5px 0">${phone}</td></tr>
                 <tr><td style="padding:5px 16px 5px 0;color:#666;white-space:nowrap">Язык браузера</td><td style="padding:5px 0">${lang}</td></tr>
               </table>
 

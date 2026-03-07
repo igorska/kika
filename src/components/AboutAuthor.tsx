@@ -12,19 +12,12 @@ export default function AboutAuthor() {
     <section className="bg-white section-padding">
       <div className="max-w-4xl mx-auto">
         {/* Eyebrow */}
-        <p
-          className="text-primary text-sm tracking-[0.16em] uppercase font-sans font-medium text-center mb-3"
-          data-animate="fade-up"
-        >
-          Об авторе
-        </p>
-
         <h2
           className="text-3xl md:text-5xl font-bold mb-12 text-center text-charcoal"
           data-animate="fade-up"
           data-delay="1"
         >
-          Об авторе
+          <span className="border-b-2 border-primary pb-1">Об авторе</span>
         </h2>
 
         <div className="flex flex-col md:flex-row gap-12 items-start">
@@ -34,16 +27,16 @@ export default function AboutAuthor() {
             data-animate="fade-left"
             data-delay="1"
           >
-            <div className="relative w-[220px] h-[220px]">
+            <div className="relative w-[400px] h-[400px]">
               {/* Decorative ring */}
               <div className="absolute -inset-3 rounded-full border-2 border-primary/25" />
               <Image
                 src="/author.jpg"
                 alt="Кристина"
-                width={220}
-                height={220}
-                className="rounded-full object-cover w-[220px] h-[220px]"
-                sizes="220px"
+                width={400}
+                height={400}
+                className="rounded-full object-cover object-top w-[400px] h-[400px]"
+                sizes="400px"
               />
               {/* Experience badge */}
               <div
@@ -51,7 +44,7 @@ export default function AboutAuthor() {
                 data-animate="scale-in"
                 data-delay="3"
               >
-                6 лет опыта
+                7 лет опыта
               </div>
             </div>
           </div>
@@ -65,13 +58,12 @@ export default function AboutAuthor() {
             <p>Привет, меня зовут Кристина.</p>
             <p>Я профессиональный визажист.</p>
             <p>
-              За 6 лет в Калифорнии я протестировала тысячи текстур и точно
+              За 7 лет в Калифорнии я протестировала тысячи текстур и точно
               знаю, как собрать идеальную косметичку.
             </p>
             <p>
-              Я работала с разными типами кожи, разными возрастами и запросами
-              — от лёгкого ежедневного макияжа до съёмок и особых событий.
-              Поэтому в этом гайде нет случайных средств.
+              Я работала с разными типами кожи и разными текстурами. Поэтому 
+              в этом гайде нет случайных средств.
             </p>
 
             {/* Quote-style intro */}
@@ -95,7 +87,7 @@ export default function AboutAuthor() {
             </ul>
 
             <p>
-              Я собрала не просто список покупок, а систему — как выбирать и
+              Я собрала не просто список покупок, а систему как выбирать и
               как этим пользоваться.
             </p>
             <p>

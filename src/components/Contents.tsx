@@ -1,20 +1,20 @@
 const chapters = [
   {
     number: "01",
-    title: "Средства в двух бюджетах",
+    title: "Экономию времени и денег",
     description:
-      "В каждой категории — варианты в более доступном и более премиальном сегменте",
+      "Я собрала лучшие средства в премиальном и более доступном сегментах",
   },
   {
     number: "02",
-    title: "База знаний по выбору и нанесению",
+    title: "Как правильно выбрать косметику",
     description:
-      "Описаны базовые принципы подбора косметики и техники её нанесения",
+      "Базовые принципы подбора и техники нанесения",
   },
   {
     number: "03",
-    title: "Полный набор средств",
-    description: "От тоника до кистей — всё, что нужно для идеальной косметички",
+    title: "Всё, что нужно для идеальной косметички",
+    description: "Полный список: от подготовки кожи до кистей",
   },
   {
     number: "04",
@@ -28,19 +28,12 @@ export default function Contents() {
     <section className="bg-charcoal section-padding">
       <div className="max-w-4xl mx-auto">
         {/* Eyebrow */}
-        <p
-          className="text-primary text-sm tracking-[0.16em] uppercase font-sans font-medium text-center mb-3"
-          data-animate="fade-up"
-        >
-          Содержание
-        </p>
-
         <h2
           className="text-3xl md:text-5xl font-bold mb-12 text-center text-white"
           data-animate="fade-up"
           data-delay="1"
         >
-          Что внутри
+          Что вы получите?
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
