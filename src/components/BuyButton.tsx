@@ -17,10 +17,20 @@ export default function BuyButton({
       ? "text-white border-2 border-white/60 hover:border-white"
       : "text-white bg-primary shadow-[0_4px_24px_rgba(232,58,124,0.45)] hover:shadow-[0_6px_32px_rgba(232,58,124,0.65)]";
 
+  function handleClick() {
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "click_buy_button", {
+        event_category: "engagement",
+        event_label: label,
+      });
+    }
+    onClick?.();
+  }
+
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={handleClick}
       className={`${base} ${styles} group transition-transform duration-150 hover:scale-[1.04] active:scale-[0.97]`}
     >
       {variant === "primary" && (

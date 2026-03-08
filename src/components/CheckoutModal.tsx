@@ -195,6 +195,12 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
     e.preventDefault();
     setError("");
     setLoading(true);
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "click_checkout", {
+        event_category: "engagement",
+        event_label: "Перейти к оплате",
+      });
+    }
     const fullPhone = phone.trim() && selectedCountry ? `${selectedCountry.dial} ${phone.trim()}` : "";
     try {
       const res = await fetch("/api/checkout", {
