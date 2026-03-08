@@ -112,17 +112,61 @@ export async function POST(request: NextRequest): Promise<Response> {
         const pdfBuffer = fs.readFileSync(path.join(process.cwd(), APP_CONFIG.pdfPath));
         const pdfBase64 = pdfBuffer.toString("base64");
 
-        // Email to customer — clean, just the guide
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://kristarmakeup.com";
+
+        // Email to customer
         await resend.emails.send({
           from: APP_CONFIG.senderEmail,
           to: customerEmail,
-          subject: `Ваш гайд: ${APP_CONFIG.productName}`,
+          subject: `Ваш гайд готов — Makeup Guide Book 💄`,
           html: `
-            <p>Привет, ${customerName}!</p>
-            <p>Спасибо за покупку. Ваш гайд прикреплён к этому письму.</p>
-            <p>Если у вас есть вопросы, просто ответьте на это письмо.</p>
+            <div style="font-family:Georgia,'Times New Roman',serif;max-width:560px;margin:0 auto;background:#FAF8F6;border-radius:12px;overflow:hidden">
+
+              <!-- Header -->
+              <div style="background:#6B5344;padding:32px 40px;text-align:center">
+                <p style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#F5EDE3;opacity:.7">Авторский гайд визажиста</p>
+                <h1 style="margin:0;font-size:24px;color:#F5EDE3;letter-spacing:.04em">MAKEUP GUIDE BOOK</h1>
+              </div>
+
+              <!-- Body -->
+              <div style="padding:36px 40px">
+                <p style="margin:0 0 16px;font-size:16px;color:#4a3a2d">Привет, ${customerName}! 👋</p>
+
+                <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:#4a3a2d">
+                  Спасибо за покупку! Твой гайд уже готов — ты можешь читать его прямо онлайн или скачать PDF-версию ниже.
+                </p>
+
+                <!-- CTA button -->
+                <div style="text-align:center;margin:32px 0">
+                  <a href="${baseUrl}/read_guide"
+                     style="display:inline-block;background:#6B5344;color:#F5EDE3;text-decoration:none;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;padding:14px 36px;border-radius:100px;letter-spacing:.04em">
+                    Читать гайд онлайн →
+                  </a>
+                </div>
+
+                <!-- How to read -->
+                <div style="background:#F5EDE3;border-radius:10px;padding:20px 24px;margin-bottom:24px">
+                  <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#8a6e5e">Как читать</p>
+                  <ul style="margin:0;padding:0 0 0 18px;font-size:14px;line-height:2;color:#4a3a2d;font-family:Arial,sans-serif">
+                    <li>Листай страницы стрелками ← → или свайпом на телефоне</li>
+                    <li>Используй содержание (☰) для быстрого перехода по главам</li>
+                    <li>PDF-версия прикреплена к этому письму — сохрани её на устройство</li>
+                  </ul>
+                </div>
+
+                <p style="margin:0 0 6px;font-size:14px;line-height:1.7;color:#6B5344;font-family:Arial,sans-serif">
+                  Если возникнут вопросы — просто ответь на это письмо. 🤍
+                </p>
+              </div>
+
+              <!-- Footer -->
+              <div style="padding:20px 40px;border-top:1px solid rgba(107,83,68,.15);text-align:center">
+                <p style="margin:0;font-family:Arial,sans-serif;font-size:12px;color:#8a6e5e">@kristar.kristina · <a href="${baseUrl}" style="color:#8a6e5e">${baseUrl.replace("https://","")}</a></p>
+              </div>
+
+            </div>
           `,
-          attachments: [{ filename: "guide.pdf", content: pdfBase64 }],
+          attachments: [{ filename: "Makeup Guide Book.pdf", content: pdfBase64 }],
         });
 
         // Separate notification to admin with full purchase details
