@@ -37,8 +37,6 @@ yarn-error.log*
 /private/
 
 # project assets
-public/header_1.jpg
-public/author.jpg
 kika.md
 about.txt
 output_1.jpg
