@@ -389,12 +389,20 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 </div>
 
                 {selectedCountry?.dial === "+7" && (
-                  <p className="text-sm text-charcoal/60 font-sans bg-charcoal/5 rounded-lg px-3 py-2.5 leading-relaxed">
-                    Если ваша оплата не проходит — пожалуйста напишите в директ в Instagram{" "}
-                    <a href="https://instagram.com/kristar.kristina" target="_blank" rel="noopener noreferrer" className="text-primary font-medium">
-                      @kristar.kristina
-                    </a>
-                  </p>
+                  <div className="text-sm text-charcoal/60 font-sans bg-charcoal/5 rounded-lg px-3 py-2.5 leading-relaxed flex flex-col gap-2">
+                    <p>
+                      Оплата картой РФ →{" "}
+                      <a href="https://boosty.to/kristar.kristina" target="_blank" rel="noopener noreferrer" className="text-primary font-medium">
+                        Купить на Boosty
+                      </a>
+                    </p>
+                    <p>
+                      Если возникли вопросы — напишите в директ{" "}
+                      <a href="https://instagram.com/kristar.kristina" target="_blank" rel="noopener noreferrer" className="text-primary font-medium">
+                        @kristar.kristina
+                      </a>
+                    </p>
+                  </div>
                 )}
 
                 {error && (
