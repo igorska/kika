@@ -8,6 +8,7 @@ import AboutGuide from "@/components/AboutGuide";
 import Contents from "@/components/Contents";
 import AboutAuthor from "@/components/AboutAuthor";
 import CtaSection from "@/components/CtaSection";
+import Footer from "@/components/Footer";
 
 const CheckoutModal = dynamic(() => import("@/components/CheckoutModal"), { ssr: false });
 
@@ -23,6 +24,7 @@ export default function HomeClient() {
       <AboutAuthor />
       <CtaSection onBuyClick={openModal} />
       <CheckoutModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <Footer />
     </main>
   );
 }

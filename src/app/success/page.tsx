@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
 
 export default function SuccessPage() {
   return (
+    <>
     <main className="bg-cream min-h-screen flex items-center justify-center px-6">
       <div className="max-w-md w-full text-center">
         {/* Checkmark circle */}
@@ -51,5 +53,7 @@ export default function SuccessPage() {
         </Link>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
