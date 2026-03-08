@@ -1,4 +1,5 @@
 import BuyButton from "./BuyButton";
+import { APP_CONFIG } from "@/lib/config";
 
 interface CtaSectionProps {
   onBuyClick: () => void;
@@ -36,7 +37,13 @@ export default function CtaSection({ onBuyClick }: CtaSectionProps) {
         </p>
 
         <div data-animate="fade-up" data-delay="3" className="flex flex-col items-center gap-4">
-          {/* PRICES_HIDDEN */}
+          <div className="flex items-center gap-3">
+            <span className="bg-primary text-white text-xs font-bold font-sans uppercase tracking-widest px-3 py-1 rounded-full">
+              Скидка
+            </span>
+            <span className="line-through text-white/40 text-xl font-sans">{APP_CONFIG.priceOriginal}</span>
+            <span className="text-white text-4xl font-bold font-sans">{APP_CONFIG.price}</span>
+          </div>
           <BuyButton label="Купить гайд" onClick={onBuyClick} />
         </div>
       </div>

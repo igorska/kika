@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { APP_CONFIG } from "@/lib/config";
 
 interface Country {
   code: string;
@@ -391,7 +392,15 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                   <p className="text-sm text-red-600">{error}</p>
                 )}
 
-                {/* PRICES_HIDDEN */}
+                <div className="flex items-center justify-between bg-primary/8 rounded-xl px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <span className="bg-primary text-white text-xs font-bold font-sans uppercase tracking-widest px-2.5 py-1 rounded-full">
+                      Скидка
+                    </span>
+                    <span className="line-through text-charcoal/35 text-base font-sans">{APP_CONFIG.priceOriginal}</span>
+                  </div>
+                  <span className="text-primary text-3xl font-bold font-sans">{APP_CONFIG.price}</span>
+                </div>
 
                 <motion.button
                   type="submit"
