@@ -3,6 +3,7 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import AnimationObserver from "@/components/AnimationObserver";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
   subsets: ["cyrillic", "latin"],
@@ -85,6 +86,7 @@ export default function RootLayout({
         <AnimationObserver />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-E3DG81P4PL" />
     </html>
   );
 }
