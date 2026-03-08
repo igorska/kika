@@ -1,6 +1,5 @@
 import Image from "next/image";
 import BuyButton from "./BuyButton";
-import { APP_CONFIG } from "@/lib/config";
 
 interface HeroProps {
   onBuyClick: () => void;
@@ -48,13 +47,7 @@ export default function Hero({ onBuyClick }: HeroProps) {
         </p>
 
         <div className="hero-anim flex flex-col items-center gap-4" style={{ animationDelay: "0.64s" }}>
-          <div className="flex items-center gap-3">
-            <span className="bg-primary text-white text-xs font-bold font-sans uppercase tracking-widest px-3 py-1 rounded-full">
-              Скидка
-            </span>
-            <span className="line-through text-white/40 text-xl font-sans">{APP_CONFIG.priceOriginal}</span>
-            <span className="text-white text-4xl font-bold font-sans">{APP_CONFIG.price}</span>
-          </div>
+          {/* PRICES_HIDDEN */}
           <BuyButton onClick={onBuyClick} />
         </div>
       </div>

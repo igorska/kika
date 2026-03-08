@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/read_guide",
+        destination: "/read_guide/index.html",
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {

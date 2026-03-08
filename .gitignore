@@ -43,6 +43,12 @@ kika.md
 about.txt
 output_1.jpg
 
+# guide reader — large binary files
+public/read_guide/guide.pdf
+public/read_guide/*.JPG
+public/read_guide/*.PNG
+public/read_guide/backup/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
