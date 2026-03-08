@@ -199,6 +199,9 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       (window as any).gtag("event", "click_checkout", {
         event_category: "engagement",
         event_label: "Перейти к оплате",
+        country: selectedCountry?.code ?? "unknown",
+        dial_code: selectedCountry?.dial ?? "unknown",
+        has_phone: phone.trim().length > 0,
       });
     }
     const fullPhone = phone.trim() && selectedCountry ? `${selectedCountry.dial} ${phone.trim()}` : "";
