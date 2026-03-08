@@ -388,6 +388,15 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                   </div>
                 </div>
 
+                {selectedCountry?.dial === "+7" && (
+                  <p className="text-sm text-charcoal/60 font-sans bg-charcoal/5 rounded-lg px-3 py-2.5 leading-relaxed">
+                    Если ваша оплата не проходит — пожалуйста напишите в директ в Instagram{" "}
+                    <a href="https://instagram.com/kristar.kristina" target="_blank" rel="noopener noreferrer" className="text-primary font-medium">
+                      @kristar.kristina
+                    </a>
+                  </p>
+                )}
+
                 {error && (
                   <p className="text-sm text-red-600">{error}</p>
                 )}
