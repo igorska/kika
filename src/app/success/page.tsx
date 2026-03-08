@@ -44,10 +44,10 @@ export default function SuccessPage() {
 
         {/* Back link */}
         <Link
-          href="/"
+          href="/read_guide"
           className="inline-block text-primary font-semibold underline underline-offset-4 hover:opacity-70 transition-opacity"
         >
-          ← Вернуться на главную
+          Читать гайд →
         </Link>
       </div>
     </main>
