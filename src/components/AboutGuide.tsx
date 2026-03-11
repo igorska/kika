@@ -34,7 +34,7 @@ export default function AboutGuide({ onBuyClick }: AboutGuideProps) {
         </div>
 
         <div className="flex justify-center" data-animate="fade-up" data-delay="2">
-          <BuyButton label="Хочу гайд" onClick={onBuyClick} />
+          <BuyButton label="Хочу гайд" onClick={onBuyClick} source="about_guide" />
         </div>
       </div>
     </section>

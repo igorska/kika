@@ -2,12 +2,14 @@ interface BuyButtonProps {
   label?: string;
   variant?: "primary" | "ghost";
   onClick?: () => void;
+  source?: string;
 }
 
 export default function BuyButton({
   label = "Купить гайд",
   variant = "primary",
   onClick,
+  source,
 }: BuyButtonProps) {
   const base =
     "relative inline-block font-bold py-4 px-10 rounded-full text-base tracking-wide overflow-hidden cursor-pointer";
@@ -22,6 +24,7 @@ export default function BuyButton({
       (window as any).gtag("event", "click_buy_button", {
         event_category: "engagement",
         event_label: label,
+        source: source ?? "unknown",
       });
     }
     onClick?.();

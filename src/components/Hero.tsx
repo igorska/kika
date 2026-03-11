@@ -55,7 +55,7 @@ export default function Hero({ onBuyClick }: HeroProps) {
             <span className="line-through text-white/40 text-xl font-sans">{APP_CONFIG.priceOriginal}</span>
             <span className="text-white text-4xl font-bold font-sans">{APP_CONFIG.price}</span>
           </div>
-          <BuyButton onClick={onBuyClick} />
+          <BuyButton onClick={onBuyClick} source="hero" />
         </div>
       </div>
 

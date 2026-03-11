@@ -44,7 +44,7 @@ export default function CtaSection({ onBuyClick }: CtaSectionProps) {
             <span className="line-through text-white/40 text-xl font-sans">{APP_CONFIG.priceOriginal}</span>
             <span className="text-white text-4xl font-bold font-sans">{APP_CONFIG.price}</span>
           </div>
-          <BuyButton label="Купить гайд" onClick={onBuyClick} />
+          <BuyButton label="Купить гайд" onClick={onBuyClick} source="cta_section" />
         </div>
       </div>
     </section>
