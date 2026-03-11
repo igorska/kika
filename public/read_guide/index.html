@@ -84,7 +84,29 @@
     min-width: 60px;
     text-align: center;
     opacity: 0.9;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 3px 6px;
+    transition: background 0.15s;
+    user-select: none;
   }
+  #page-counter:hover { background: rgba(255,255,255,0.15); }
+
+  #page-input {
+    display: none;
+    width: 72px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    color: var(--beige);
+    font-size: 13px;
+    font-family: inherit;
+    text-align: center;
+    padding: 3px 6px;
+    outline: none;
+  }
+  #page-input:focus { border-color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.22); }
+  #page-input.visible { display: inline-block; }
 
   /* ── MAIN VIEWER ── */
   #viewer {
@@ -149,6 +171,7 @@
     .btn.icon { padding: 7px 10px; font-size: 18px; }
 
     #page-counter { min-width: 44px; font-size: 12px; }
+    #page-input { width: 60px; font-size: 12px; }
   }
 
   /* ── TOC PANEL ── */
@@ -287,7 +310,8 @@
   </div>
   <div class="title">MAKEUP GUIDE</div>
   <div class="right">
-    <span id="page-counter">1 / 169</span>
+    <span id="page-counter" title="Нажмите, чтобы перейти к странице">1 / 169</span>
+    <input id="page-input" type="number" min="1" max="169" inputmode="numeric" aria-label="Номер страницы">
     <a class="btn" href="guide.pdf" download title="Скачать PDF">&#8659; Скачать</a>
   </div>
 </div>
@@ -372,6 +396,7 @@
 
   const img        = document.getElementById('page-img');
   const counter    = document.getElementById('page-counter');
+  const pageInput  = document.getElementById('page-input');
   const loading    = document.getElementById('loading');
   const tocOverlay = document.getElementById('toc-overlay');
   const tocList    = document.getElementById('toc-list');
@@ -478,6 +503,36 @@
   // Image load events
   img.addEventListener('load', () => { loading.classList.add('hidden'); });
   img.addEventListener('error', () => { loading.classList.add('hidden'); });
+
+  // Go-to-page
+  function openPageInput() {
+    counter.style.display = 'none';
+    pageInput.classList.add('visible');
+    pageInput.value = PAGES[currentIndex][0];
+    pageInput.placeholder = '';
+    pageInput.focus();
+    pageInput.select();
+  }
+  function closePageInput() {
+    pageInput.classList.remove('visible');
+    pageInput.value = '';
+    counter.style.display = '';
+  }
+  function commitPageInput() {
+    const val = parseInt(pageInput.value, 10);
+    if (!isNaN(val)) {
+      const idx = pageNumToIndex(val);
+      if (idx >= 0) goTo(idx);
+    }
+    closePageInput();
+  }
+
+  counter.addEventListener('click', openPageInput);
+  pageInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); commitPageInput(); }
+    if (e.key === 'Escape') closePageInput();
+  });
+  pageInput.addEventListener('blur', closePageInput);
 
   // Navigation
   document.getElementById('nav-prev').addEventListener('click', () => goTo(currentIndex - 1, -1));
